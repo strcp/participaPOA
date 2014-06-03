@@ -20,6 +20,7 @@
 {
     [super viewDidLoad];
 
+    [self setTitle:@"ParticipaPOA"];
     _records = [[NSArray alloc] init];
     [self getData];
 }
@@ -57,6 +58,7 @@
 
     NSDictionary *dict = [_records objectAtIndex:indexPath.row];
     NSString *desc = [dict objectForKey:@"Descri\u00e7\u00e3o Demanda"];
+//    NSString *desc = [dict objectForKey:@"Tema"];
     [cell.textLabel setText:desc];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
