@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TSDetalheViewController.h"
 
 @interface TSViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
 {

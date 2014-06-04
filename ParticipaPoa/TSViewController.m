@@ -20,6 +20,14 @@
 {
     [super viewDidLoad];
 
+    UIBarButtonItem *nextViewBackButton = [[UIBarButtonItem alloc]
+                                           initWithTitle: @"Voltar"
+                                           style:UIBarButtonItemStyleBordered
+                                           target:nil
+                                           action:nil];
+
+    [self.navigationItem setBackBarButtonItem:nextViewBackButton];
+
     [self setTitle:@"ParticipaPOA"];
     _records = [[NSArray alloc] init];
     [self getData];
@@ -69,7 +77,16 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"detalhes" sender:tableView];
+}
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    TSDetalheViewController *detalhesVC = segue.destinationViewController;
+    NSIndexPath *indexPath = [_tableView indexPathForSelectedRow];
+    [detalhesVC setDetalhes:[_records objectAtIndex:indexPath.row]];
 }
 
 - (void)getData
@@ -87,9 +104,9 @@
         NSDictionary *result = [dataDict objectForKey:@"result"];
         _records = [[NSArray alloc] initWithArray:[result objectForKey:@"records"]];
 
-        for (NSDictionary *dict in _records) {
-            NSLog(@"%@", dict);
-        }
+//        for (NSDictionary *dict in _records) {
+//            NSLog(@"%@", dict);
+//        }
         [_tableView reloadData];
     } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
         NSLog(@"%@", [error userInfo]);

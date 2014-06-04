@@ -44,7 +44,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="qqF-pU-9Jw" kind="push" id="5t6-fN-rCi"/>
+                                            <segue destination="qqF-pU-9Jw" kind="push" identifier="detalhes" id="5t6-fN-rCi"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -77,10 +77,10 @@
             </objects>
             <point key="canvasLocation" x="-1076" y="236"/>
         </scene>
-        <!--View Controller - Descrição-->
+        <!--Detalhe View Controller - Descrição-->
         <scene sceneID="ggI-1c-xqX">
             <objects>
-                <viewController id="qqF-pU-9Jw" sceneMemberID="viewController">
+                <viewController id="qqF-pU-9Jw" customClass="TSDetalheViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fXy-kc-pgr"/>
                         <viewControllerLayoutGuide type="bottom" id="TN2-PK-j3E"/>
@@ -90,7 +90,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Data" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lkc-fr-QLi">
-                                <rect key="frame" x="182" y="210" width="118" height="21"/>
+                                <rect key="frame" x="162" y="210" width="138" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -108,7 +108,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Descrição" translatesAutoresizingMaskIntoConstraints="NO" id="67b-Ad-uzo">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="Descrição" translatesAutoresizingMaskIntoConstraints="NO" id="67b-Ad-uzo">
                                 <rect key="frame" x="40" y="346" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -119,6 +119,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Descrição" id="gc7-es-rqL"/>
+                    <connections>
+                        <outlet property="_data" destination="lkc-fr-QLi" id="RF6-bY-Fit"/>
+                        <outlet property="_desciption" destination="67b-Ad-uzo" id="fRO-Os-6V7"/>
+                        <outlet property="_tema" destination="OwY-GA-EUY" id="tA9-rB-gCb"/>
+                        <outlet property="_valor" destination="n7e-pR-sRw" id="BmX-j2-Ace"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfd-3c-kVb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
