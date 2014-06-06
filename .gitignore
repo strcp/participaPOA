@@ -6,3 +6,7 @@
 #
 # Pods/
 
+.DS_Store
+ParticipaPoa.xcodeproj/project.xcworkspace/xcshareddata
+ParticipaPoa.xcworkspace/xcshareddata
+

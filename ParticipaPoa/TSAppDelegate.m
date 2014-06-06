@@ -12,8 +12,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    UIColor *color = [UIColor colorWithRed:255/255.0f green:161/255.0f blue:56/255.0f alpha:0.8f];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:color];
+    [[UINavigationBar appearance] setTitleTextAttributes:
+     [NSDictionary dictionaryWithObjectsAndKeys:
+      [UIColor whiteColor],
+      NSForegroundColorAttributeName,
+      [UIColor whiteColor],
+      NSForegroundColorAttributeName,
+      nil]];
+
     return YES;
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

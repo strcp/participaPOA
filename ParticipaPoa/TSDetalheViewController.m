@@ -29,17 +29,26 @@
 {
     [super viewDidLoad];
 
-    NSLog(@"DBG: %@", _detalhes);
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     [_tema setText:[_detalhes objectForKey:@"Tema"]];
+
     NSString *valor = [_detalhes objectForKey:@"Valor Previsto"];
-    [_valor setText:[NSString stringWithFormat:@"R$ %@", valor]];
+
+    NSInteger intVal = [valor intValue];
+    NSNumberFormatter *currencyStyle = [[NSNumberFormatter alloc] init];
+    [currencyStyle setFormatterBehavior:NSNumberFormatterBehavior10_4];
+    [currencyStyle setNumberStyle:NSNumberFormatterCurrencyStyle];
+    NSNumber *amount = [NSNumber numberWithInteger:intVal];
+    valor = [currencyStyle stringFromNumber:amount];
+
+    [_valor setText:valor];
 
 
     NSString *desc = [_detalhes objectForKey:@"Descri\u00e7\u00e3o Demanda"];
     [_desciption setText:desc];
 
-    [_data setTextAlignment:NSTextAlignmentRight];
+//    [_data setTextAlignment:NSTextAlignmentRight];
 
     NSArray *keys = [_detalhes allKeys];
     for (NSString *key in keys) {
@@ -53,6 +62,7 @@
         NSLog(@"D: %@", dataObj);
         data = [self strDateFromDate:dataObj];
         [_data setText:data];
+
         break;
     }
 }

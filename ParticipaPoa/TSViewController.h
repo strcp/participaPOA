@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TSDetalheViewController.h"
+#import "MBProgressHUD.h"
 
 @interface TSViewController : UIViewController <UITableViewDataSource, UITableViewDataSource>
 {
